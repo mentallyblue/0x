@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: 0x
+    env: node
+    plan: pro
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: PORT
+        value: 8080
+    healthCheckPath: /api/test
+    autoDeploy: true 
